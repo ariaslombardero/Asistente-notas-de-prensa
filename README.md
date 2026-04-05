@@ -9,10 +9,9 @@
 ![Gemini AI](https://img.shields.io/badge/google%20gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
 ![Estado](https://img.shields.io/badge/Estado-Activo-success?style=for-the-badge)
 
-<img src="./thumbnail.png" alt="Asistente notas prensa Thumbnail" width="100%" />
+<img src="./public/thumbnail.png" alt="Asistente notas prensa Thumbnail" width="100%" />
 
-
-**Herramienta diseñada como prueba de concepto para el gabinete de comunicación de la Diputación de Lugo, que utiliza la API gratuita de Google Gemini (modelos Flash) para la redacción de borradores de notas de prensa y contenido para redes sociales.**
+**Herramienta diseñada como prueba de concepto para el gabinete de comunicación de la Diputación de Lugo, que utiliza la API gratuita de Google Gemini (modelos Flash) para la redacción automatizada de borradores de notas de prensa y contenido para redes sociales.**
 
 [🚀 Características](#-características) · [🏗️ Arquitectura](#️-arquitectura) · [🤖 Estilo de redacción](#-estilo-de-redacción-y-entrenamiento) · [🌍 Soporte multiidioma](#-soporte-multiidioma) · [⚡ Instalación y puesta en marcha](#-instalación-y-puesta-en-marcha)
 
@@ -28,7 +27,9 @@
 
 El **Asistente de Notas de Prensa** es una aplicación web moderna que transforma información bruta, documentos administrativos, actas o informes técnicos en borradores de notas de prensa con un estilo periodístico profesional en cuestión de segundos.
 
-La aplicación está diseñada específicamente para agilizar el trabajo diario del Gabinete de Comunicación, permitiendo generar no solo la nota de prensa principal, sino también sus correspondientes adaptaciones optimizadas para diferentes redes sociales (Instagram, Facebook y X).
+La aplicación está diseñada para agilizar el trabajo diario del Gabinete de Comunicación, permitiendo generar no solo la nota de prensa principal, sino también sus correspondientes adaptaciones optimizadas para diferentes redes sociales (Instagram, Facebook y X). El objetivo es servir como un punto de partida eficiente para la redacción de borradores de notas de prensa a partir de documentos técnicos complejos (como propuestas a Juntas de Gobierno, actas de Pleno o Resoluciones de Presidencia).
+
+**Nota sobre el uso:** Esta aplicación se concibe como un asistente de apoyo para facilitar la labor del empleado público, proporcionando una base sólida sobre la cual trabajar. Es fundamental destacar que la herramienta no pretende, en ningún caso, sustituir el criterio, la supervisión ni la capacidad creativa del personal especializado, sino potenciar su productividad.
 
 > [!NOTE]
 > **Aviso de privacidad:** Todo el procesamiento de texto se realiza a través de la API de Google Gemini. Asegúrese de no introducir información confidencial o datos personales sensibles no anonimizados en la herramienta.
@@ -76,11 +77,13 @@ press-release-assistant/
 └── tsconfig.json               # Configuración de TypeScript
 ```
 
+**Visión de futuro:** Aunque esta prueba de concepto utiliza modelos en la nube para facilitar su despliegue inmediato, el objetivo estratégico de nuestra entidad es integrar esta interfaz con nuestro ecosistema local mediante. Esto permitirá ejecutar modelos de pesos abiertos o código abierto (como Gemma 4 o modelos de la familia ALIA) directamente en nuestra infraestructura, garantizando la máxima privacidad y soberanía sobre los datos procesados sin depender de servicios externos.
+
 ---
 
 ## 🌍 Soporte multiidioma
 
-La aplicación está diseñada para trabajar de forma nativa en los dos idiomas oficiales de la comunidad:
+La aplicación está diseñada para trabajar de forma nativa en los dos idiomas oficiales de la comunidad autónoma de Galicia:
 
 | Idioma | Estado | Uso |
 |--------|--------|-----|
@@ -120,7 +123,7 @@ Este ecosistema ha sido desarrollado íntegramente mediante **AI-Driven Developm
 ### Prerrequisitos
 - **Node.js** `>= 18.x`
 - **npm** `>= 9.x`
-- **Clave de API de Google Gemini**
+- **Clave de API de Google Gemini:** Para poder probar la aplicación, necesitarás una clave de API de Google Gemini, la cual puedes obtener de forma gratuita utilizando una cuenta de Google a través del siguiente enlace: [Google AI Studio — API Keys](https://aistudio.google.com/api-keys).
 
 ### Pasos
 
@@ -144,18 +147,18 @@ La aplicación estará disponible en **[http://localhost:3000](http://localhost:
 
 ---
 
-## 🤖 Personalización del estilo de redacción
+## 🤖 Personalización del Estilo de Redacción
 
-Esta aplicación está configurada por defecto para emular el estilo del Gabinete de Comunicación de la **Diputación de Lugo**. Si deseas adaptar esta herramienta a las necesidades de otra institución, empresa o entidad, el elemento clave a modificar es la constante `SYSTEM_INSTRUCTION` situada en el archivo `src/App.tsx`.
+La aplicación está configurada por defecto para emular el estilo del Gabinete de Comunicación de la **Diputación de Lugo**. Si deseas adaptar esta herramienta a las necesidades de otra institución, empresa o entidad, el elemento clave a modificar es la constante `SYSTEM_INSTRUCTION` situada en el archivo `src/App.tsx`.
 
 ### Cómo replicar el estilo de tu propia institución
 
 Para conseguir que la IA escriba con el tono, la estructura y el vocabulario específico de tu organización, recomendamos seguir este proceso de "ingeniería de estilo" utilizando **NotebookLM** de Google:
 
 1. **Recopilación de fuentes:** Identifica entre 50 y 100 notas de prensa reales publicadas por tu entidad que representen tu "estilo ideal".
-   *   *Consejo para el scraping:* Si no quieres recopilar las URLs a mano, puedes usar herramientas como **Browse AI**, **Octoparse** o extensiones de navegador como **Web Scraper** para extraer automáticamente las URLs de las noticias de tu sitio web. Alternativamente, si tienes acceso a un agente de navegación (como por ejemplo Comet de Perplexity), puedes pedirle: *"Visita la web [URL_DE_TU_ENTIDAD] y navega por las páginas de paginación para listar las URLs de las 100 noticias más recientes. Devuélveme el listado en un markdown que contenga unicamente las urls en líneas separadas."*
+   *   *Consejo para el scraping:* Si no quieres recopilar las URLs a mano, puedes usar herramientas como **Browse AI**, **Octoparse** o extensiones de navegador como **Web Scraper** para extraer automáticamente las URLs de las noticias de tu sitio web. Alternativamente, si tienes acceso a un agente de navegación (como los disponibles en Perplexity o ChatGPT Plus), puedes pedirle: *"Visita la web [URL_DE_TU_ENTIDAD] y navega por las páginas de paginación para listar las URLs de las 100 noticias más recientes. Devuélveme el listado en formato CSV o tabla."*
 2. **Creación del cuaderno:** Abre [NotebookLM](https://notebooklm.google.com/) y crea un nuevo cuaderno de notas.
-3. **Carga de datos:** Añade las URLs de las noticias seleccionadas como fuentes del cuaderno.
+3. **Carga de datos:** Añade las URLs de las noticias seleccionadas o sube los textos en PDF/Word como fuentes del cuaderno.
 4. **Extracción del ADN de redacción:** Una vez procesadas las fuentes, introduce el siguiente prompt en el chat de NotebookLM:
 
 > "Actúa como un experto en comunicación institucional y análisis lingüístico. Analiza todas las fuentes proporcionadas y extrae un conjunto detallado de directrices que definan fielmente el estilo de redacción de esta entidad. El objetivo es crear una instrucción de sistema (System Prompt) para un modelo de lenguaje.
@@ -163,19 +166,13 @@ Para conseguir que la IA escriba con el tono, la estructura y el vocabulario esp
 > Incluye en tu análisis:
 > - **Tono y voz:** ¿Es formal, cercano, técnico, institucional?
 > - **Estructura:** ¿Cómo son los titulares? ¿Qué información va en la entradilla? ¿Cómo se organiza el cuerpo?
-> - **Tratamiento de autoridades:** ¿Cómo se refieren a los cargos (Presidente/a, Diputados/as, Alcalde/esa, Concejal/a etc.)?
+> - **Tratamiento de autoridades:** ¿Cómo se refieren a los cargos (Presidente/a, Diputados/as, etc.)?
 > - **Vocabulario:** Palabras recurrentes, conectores preferidos y términos prohibidos o a evitar (jerga administrativa, etc.).
 > - **Reglas específicas:** Patrones detectados en el uso de negritas, longitud de párrafos o cierre de noticias.
 > 
 > Presenta el resultado como una lista de instrucciones claras, directas y estructuradas."
 
 5. **Implementación:** Copia el análisis resultante y sustituye el contenido de la constante `SYSTEM_INSTRUCTION` en `src/App.tsx`. Ten en cuenta que el estilo original está redactado en gallego; si tu entidad opera en otro idioma, ajusta las instrucciones para que la IA genere el contenido directamente en el idioma deseado. Automáticamente, la aplicación empezará a generar contenidos siguiendo tu nueva línea editorial.
-
----
-
-## 📄 Uso
-
-Este proyecto es de uso interno para la optimización de los flujos de trabajo del gabinete de comunicación. No obstante cualquiera puede clonar el repositorio y adaptar el estilo de escritura a sus necesidades.
 
 ---
 
