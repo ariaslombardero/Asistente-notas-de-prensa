@@ -11,7 +11,8 @@
 
 <img src="./thumbnail.png" alt="Asistente notas prensa Thumbnail" width="100%" />
 
-**Herramienta diseñada como prueba de concepto para el gabinete de comunicación de la Diputación de Lugo, que utiliza la API gratuita de Google Gemini (modelos Flash) para la redacción automatizada de borradores de notas de prensa y contenido para redes sociales.**
+
+**Herramienta diseñada como prueba de concepto para el gabinete de comunicación de la Diputación de Lugo, que utiliza la API gratuita de Google Gemini (modelos Flash) para la redacción de borradores de notas de prensa y contenido para redes sociales.**
 
 [🚀 Características](#-características) · [🏗️ Arquitectura](#️-arquitectura) · [🤖 Estilo de redacción](#-estilo-de-redacción-y-entrenamiento) · [🌍 Soporte multiidioma](#-soporte-multiidioma) · [⚡ Instalación y puesta en marcha](#-instalación-y-puesta-en-marcha)
 
