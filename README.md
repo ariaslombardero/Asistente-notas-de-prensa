@@ -9,7 +9,7 @@
 ![Gemini AI](https://img.shields.io/badge/google%20gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
 ![Estado](https://img.shields.io/badge/Estado-Activo-success?style=for-the-badge)
 
-<img src="./public/thumbnail.png" alt="Asistente notas prensa Thumbnail" width="100%" />
+<img src="./thumbnail.png" alt="Asistente notas prensa Thumbnail" width="100%" />
 
 **Herramienta diseñada como prueba de concepto para el gabinete de comunicación de la Diputación de Lugo, que utiliza la API gratuita de Google Gemini (modelos Flash) para la redacción automatizada de borradores de notas de prensa y contenido para redes sociales.**
 
