@@ -55,8 +55,6 @@ export const ApiConfigModal: React.FC<ApiConfigModalProps> = ({ open, onOpenChan
     { id: 'gemini-3.1-flash-lite-preview', name: 'Gemini 3.1 Flash Lite Preview (Recomendado)' },
     { id: 'gemini-3-flash-preview', name: 'Gemini 3 Flash Preview' },
     { id: 'gemini-flash-latest', name: 'Gemini Flash Latest' },
-    { id: 'gemma-4-26b-a4b-it', name: 'Gemma 4 26B A4B IT' },
-    { id: 'gemma-4-31b-it', name: 'Gemma 4 31B IT' },
   ];
 
   const isConfigured = !!config;
