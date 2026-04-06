@@ -9,7 +9,7 @@
 ![Gemini AI](https://img.shields.io/badge/google%20gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
 ![Estado](https://img.shields.io/badge/Estado-Activo-success?style=for-the-badge)
 
-<img src="./public/thumbnail.png" alt="Asistente notas prensa Thumbnail" width="100%" />
+<img src="./thumbnail.png" alt="Asistente notas prensa Thumbnail" width="100%" />
 
 **Herramienta diseñada como prueba de concepto para el gabinete de comunicación de la Diputación de Lugo, que utiliza la API gratuita de Google Gemini (modelos Flash) para la redacción automatizada de borradores de notas de prensa y contenido para redes sociales.**
 
@@ -29,14 +29,16 @@ El **Asistente de Notas de Prensa** es una aplicación web moderna que transform
 
 La aplicación está diseñada para agilizar el trabajo diario del Gabinete de Comunicación, permitiendo generar no solo la nota de prensa principal, sino también sus correspondientes adaptaciones optimizadas para diferentes redes sociales (Instagram, Facebook y X). El objetivo es servir como un punto de partida eficiente para la redacción de borradores de notas de prensa a partir de documentos técnicos complejos (como propuestas a Juntas de Gobierno, actas de Pleno o Resoluciones de Presidencia).
 
-**Nota sobre el uso:** Esta aplicación se concibe como un asistente de apoyo para facilitar la labor del empleado público, proporcionando una base sólida sobre la cual trabajar. Es fundamental destacar que la herramienta no pretende, en ningún caso, sustituir el criterio, la supervisión ni la capacidad creativa del personal especializado, sino potenciar su productividad.
+**Nota sobre el uso:** Esta aplicación está pensada como un apoyo para facilitar la labor del empleado público, proporcionando una base sólida sobre la cual trabajar. Es fundamental destacar que la herramienta no pretende, en ningún caso, sustituir el criterio, la supervisión ni la capacidad creativa del personal especializado, sino potenciar su productividad.
+
+> 🏛️ Está previsto que esta aplicación forme parte del conjunto de herramientas tecnológicas de [**MencIA**](https://github.com/ariaslombardero/Landing-MencIA), la estrategia de Inteligencia Artificial de la Diputación de Lugo.
 
 > [!NOTE]
 > **Aviso de privacidad:** Todo el procesamiento de texto se realiza a través de la API de Google Gemini. Asegúrese de no introducir información confidencial o datos personales sensibles no anonimizados en la herramienta.
 
 ---
 
-## 🤖 Estilo de redacción y entrenamiento
+## 🎨 Estilo de redacción y entrenamiento
 
 Una de las características más destacadas de esta aplicación es su capacidad para **emular el estilo de escritura del Gabinete de Comunicación de la Diputación de Lugo**. 
 
@@ -77,7 +79,7 @@ press-release-assistant/
 └── tsconfig.json               # Configuración de TypeScript
 ```
 
-**Visión de futuro:** Aunque esta prueba de concepto utiliza modelos en la nube para facilitar su despliegue inmediato, el objetivo estratégico de nuestra entidad es integrar esta interfaz con nuestro ecosistema local mediante. Esto permitirá ejecutar modelos de pesos abiertos o código abierto (como Gemma 4 o modelos de la familia ALIA) directamente en nuestra infraestructura, garantizando la máxima privacidad y soberanía sobre los datos procesados sin depender de servicios externos.
+**Visión de futuro:** Aunque esta prueba de concepto utiliza modelos en la nube para facilitar su despliegue inmediato, el objetivo estratégico de nuestra entidad es integrar esta interfaz con nuestro ecosistema local. Esto permitirá que la herramienta llame para su ejecución a los modelos de pesos abiertos o código abierto (como Gemma 4 o modelos de la familia ALIA) que tenemos instalados en nuestro servidor, garantizando la máxima privacidad y soberanía sobre los datos procesados sin depender de servicios externos.
 
 ---
 
@@ -147,7 +149,7 @@ La aplicación estará disponible en **[http://localhost:3000](http://localhost:
 
 ---
 
-## 🤖 Personalización del Estilo de Redacción
+## 📖 Personalización del estilo de redacción
 
 La aplicación está configurada por defecto para emular el estilo del Gabinete de Comunicación de la **Diputación de Lugo**. Si deseas adaptar esta herramienta a las necesidades de otra institución, empresa o entidad, el elemento clave a modificar es la constante `SYSTEM_INSTRUCTION` situada en el archivo `src/App.tsx`.
 
@@ -156,9 +158,9 @@ La aplicación está configurada por defecto para emular el estilo del Gabinete 
 Para conseguir que la IA escriba con el tono, la estructura y el vocabulario específico de tu organización, recomendamos seguir este proceso de "ingeniería de estilo" utilizando **NotebookLM** de Google:
 
 1. **Recopilación de fuentes:** Identifica entre 50 y 100 notas de prensa reales publicadas por tu entidad que representen tu "estilo ideal".
-   *   *Consejo para el scraping:* Si no quieres recopilar las URLs a mano, puedes usar herramientas como **Browse AI**, **Octoparse** o extensiones de navegador como **Web Scraper** para extraer automáticamente las URLs de las noticias de tu sitio web. Alternativamente, si tienes acceso a un agente de navegación (como los disponibles en Perplexity o ChatGPT Plus), puedes pedirle: *"Visita la web [URL_DE_TU_ENTIDAD] y navega por las páginas de paginación para listar las URLs de las 100 noticias más recientes. Devuélveme el listado en formato CSV o tabla."*
+   *   *Consejo para el scraping:* Si no quieres recopilar las URLs a mano, puedes usar herramientas como **Browse AI**, **Octoparse** o extensiones de navegador como **Web Scraper** para extraer automáticamente las URLs de las noticias de tu sitio web. Alternativamente, si tienes acceso a un agente de navegación (como por ejemplo Comet de Perplexity), puedes pedirle: *"Visita la web [URL_DE_TU_ENTIDAD] y navega por las páginas de paginación para listar las URLs de las 100 noticias más recientes. Devuélveme el listado en formato MD/TXT y pon cada url en líneas separadas."*
 2. **Creación del cuaderno:** Abre [NotebookLM](https://notebooklm.google.com/) y crea un nuevo cuaderno de notas.
-3. **Carga de datos:** Añade las URLs de las noticias seleccionadas o sube los textos en PDF/Word como fuentes del cuaderno.
+3. **Carga de datos:** Añade los enlaces de las noticias seleccionadas desde la opción Añadir fuentes/Sitios web, copiando y pegando todas las URLs extraídas en el paso anterior.
 4. **Extracción del ADN de redacción:** Una vez procesadas las fuentes, introduce el siguiente prompt en el chat de NotebookLM:
 
 > "Actúa como un experto en comunicación institucional y análisis lingüístico. Analiza todas las fuentes proporcionadas y extrae un conjunto detallado de directrices que definan fielmente el estilo de redacción de esta entidad. El objetivo es crear una instrucción de sistema (System Prompt) para un modelo de lenguaje.
@@ -166,13 +168,19 @@ Para conseguir que la IA escriba con el tono, la estructura y el vocabulario esp
 > Incluye en tu análisis:
 > - **Tono y voz:** ¿Es formal, cercano, técnico, institucional?
 > - **Estructura:** ¿Cómo son los titulares? ¿Qué información va en la entradilla? ¿Cómo se organiza el cuerpo?
-> - **Tratamiento de autoridades:** ¿Cómo se refieren a los cargos (Presidente/a, Diputados/as, etc.)?
+> - **Tratamiento de autoridades:** ¿Cómo se refieren a los cargos (Presidente/a, Diputados/as, Alcalde/esa, Concejal/a etc.)?
 > - **Vocabulario:** Palabras recurrentes, conectores preferidos y términos prohibidos o a evitar (jerga administrativa, etc.).
 > - **Reglas específicas:** Patrones detectados en el uso de negritas, longitud de párrafos o cierre de noticias.
 > 
 > Presenta el resultado como una lista de instrucciones claras, directas y estructuradas."
 
 5. **Implementación:** Copia el análisis resultante y sustituye el contenido de la constante `SYSTEM_INSTRUCTION` en `src/App.tsx`. Ten en cuenta que el estilo original está redactado en gallego; si tu entidad opera en otro idioma, ajusta las instrucciones para que la IA genere el contenido directamente en el idioma deseado. Automáticamente, la aplicación empezará a generar contenidos siguiendo tu nueva línea editorial.
+
+---
+
+## 📄 Uso
+
+Este proyecto ha sido concebido para uso demostrativo, educativo y como prueba de concepto (PoC) del potencial transformador que tienen las tecnologías generativas en la creación de software.
 
 ---
 
