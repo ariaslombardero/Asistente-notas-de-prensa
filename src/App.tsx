@@ -341,7 +341,7 @@ export default function App() {
   const [inputText, setInputText] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [fileContent, setFileContent] = useState<string | null>(null);
-  const [language, setLanguage] = useState<'galego' | 'castelán'>('galego');
+  const [language, setLanguage] = useState<'galego' | 'castelán'>('castelán');
   const t = TRANSLATIONS[language];
   const [loading, setLoading] = useState(false);
   const [socialLoading, setSocialLoading] = useState(false);
