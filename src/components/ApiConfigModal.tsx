@@ -176,7 +176,7 @@ export const ApiConfigModal: React.FC<ApiConfigModalProps> = ({ open, onOpenChan
             </div>
           </div>
 
-          <div className="p-6 bg-slate-50 border-t border-slate-100 shrink-0">
+          <div className="p-6 bg-slate-50 border-t border-slate-100 shrink-0 space-y-3">
             <button 
               onClick={handleSave}
               disabled={!apiKey.trim()}
@@ -184,6 +184,18 @@ export const ApiConfigModal: React.FC<ApiConfigModalProps> = ({ open, onOpenChan
             >
               {t.saveConfig}
             </button>
+            {isConfigured && (
+              <button 
+                onClick={() => {
+                  setConfig(null);
+                  setApiKey('');
+                  if (onOpenChange) onOpenChange(false);
+                }}
+                className="w-full text-slate-500 text-sm font-medium hover:text-red-600 transition-colors"
+              >
+                {t.clearConfig || "Borrar configuración"}
+              </button>
+            )}
           </div>
         </Dialog.Content>
       </Dialog.Portal>
