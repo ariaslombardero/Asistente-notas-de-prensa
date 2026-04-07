@@ -596,8 +596,15 @@ export default function App() {
       const response = await callApi(config, `Baseándote na seguinte nota de prensa, suxire 3 títulos alternativos atractivos e xornalísticos. Devolve un JSON cun array de strings chamado "titles".\n\nNota de prensa:\n${content}`, "", false);
 
       if (response.text) {
-        const parsed = JSON.parse(extractJson(response.text));
-        setAlternativeTitles(parsed.titles);
+        const jsonString = extractJson(response.text);
+        try {
+          const parsed = JSON.parse(jsonString);
+          if (parsed && parsed.titles && Array.isArray(parsed.titles)) {
+            setAlternativeTitles(parsed.titles);
+          }
+        } catch (e) {
+          console.error("Error parsing alternative titles JSON:", e);
+        }
       }
     } catch (err) {
       console.error("Erro ao xerar títulos alternativos:", err);
